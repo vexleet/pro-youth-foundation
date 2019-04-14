@@ -1,0 +1,38 @@
+<div class="header">
+  <h1>Pro Youth</h1>
+  <p>
+    CREATING OPPORTUNITIES
+    CHANGING LIVES
+    FOR &amp; WITH YOUTH</p>
+</div>
+
+<div class="main">
+  <h1>WHAT WE DO</h1>
+  <p>We believe we found out some of the best ways to help young people grow</p>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" class="tiles">
+    <mat-card class="example-card" *ngFor="let tile of tiles">
+      <mat-icon color="primary">{{tile.icon}}</mat-icon>
+      <mat-card-title>{{tile.title}}</mat-card-title>
+      <mat-card-content>
+        <p>{{tile.description}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>
+
+<div class="main">
+  <h1>Our team</h1>
+  <p>Our Team is composed of powerful energetic professionals dedicated to empowering youth and making the world a
+    better place</p>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" class="team">
+    <mat-card class="example-card" *ngFor="let current of team">
+      <img mat-card-image src="{{current.imageUrl}}">
+      <mat-card-title>{{current.name}}</mat-card-title>
+      <mat-card-content>
+        <p>{{current.role}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>
