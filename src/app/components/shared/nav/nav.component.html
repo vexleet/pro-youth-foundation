@@ -3,7 +3,9 @@
   <mat-toolbar-row class="mat-elevation-z7">
     <span>ProYouth</span>
     <a mat-button routerLink='/'>Home</a>
-    <a mat-button>About us</a>
+    <ng-template [ngIf]="!isLoggedIn">
+      <a mat-button routerLink='/projects'>Take part</a>
+    </ng-template>
     <span class="example-spacer"></span>
     <ng-template [ngIf]="isLoggedIn">
       <a mat-button routerLink="/register">Register</a>

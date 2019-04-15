@@ -1,0 +1,32 @@
+.header {
+    padding: 20px 60px 60px 60px;
+    color: black;
+    font-size: 30px;
+}
+  
+.header p{
+    font-size: 25px;
+}
+
+.main{
+    padding: 0 60px 60px 60px;
+}
+
+.main img{
+    width: 250px;
+    height: 250px;
+    margin-right: 20px;
+}
+
+.main .about h1{
+    margin: 0px;
+}
+
+.main .about .date{
+    color: #888;
+    font-style: italic;
+}
+
+.main .about button{
+    margin-right: 10px;
+}

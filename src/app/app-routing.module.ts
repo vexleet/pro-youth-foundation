@@ -1,3 +1,6 @@
+import { AuthGuard } from './core/guards/auth.guard';
+import { CanLoadProject } from './core/guards/project.guard';
+import { ProjectListComponent } from './components/projects/project-list/project-list.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { NgModule } from '@angular/core';
@@ -14,10 +17,17 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'projects',
+    loadChildren: './components/projects/projects.module#ProjectsModule',
+    canLoad: [CanLoadProject]
   }
 ];
 

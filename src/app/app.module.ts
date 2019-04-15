@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
+import { ProjectsModule } from './components/projects/projects.module';
 @NgModule({
   declarations: [
     AppComponent,
