@@ -5,8 +5,14 @@
     <a mat-button routerLink='/'>Home</a>
     <a mat-button>About us</a>
     <span class="example-spacer"></span>
-    <a mat-button routerLink="/register">Register</a>
-    <a mat-button routerLink='/login'>Login</a>
+    <ng-template [ngIf]="isLoggedIn">
+      <a mat-button routerLink="/register">Register</a>
+      <a mat-button routerLink='/login'>Login</a>
+    </ng-template>
+
+    <ng-template [ngIf]="!isLoggedIn">
+      <button mat-button (click)="logout()">Logout</button>
+    </ng-template>
 
   </mat-toolbar-row>
 
