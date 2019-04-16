@@ -1,0 +1,31 @@
+.header {
+    padding: 20px 60px 60px 60px;
+    color: black;
+    font-size: 25px;
+}
+  
+.header p{
+    font-size: 20px;
+}
+
+.header img {
+    width: 700px;
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header .date{
+    color: #888;
+    font-style: italic;
+}
+
+.main{
+    padding: 20px 60px 60px 60px;
+    font-size: 20px;
+}
+
+.main article h3{
+    margin: 5px 0px 5px 0px;
+}

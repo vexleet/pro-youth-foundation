@@ -1,3 +1,45 @@
-<p>
-  project-details works!
-</p>
+<div class="header">
+  <h1>"{{project.title}}" - {{project.place}}</h1>
+  <p>Posted on: <span class="date">{{project['_kmd']['lmt'] | date}}</span></p>
+  <img src="{{project.imageOfPlace}}" />
+</div>
+
+<div class="main">
+  <article>
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <h3>Title:</h3>
+      <p>{{project.title}}</p>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <h3>Place:</h3>
+      <p>{{project.place}}</p>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start">
+      <h3>Project description:</h3>
+      <p>{{project.description}}</p>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start">
+      <h3>Objectives:</h3>
+      <p>{{project.objectives}}</p>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start">
+      <h3>Participant profile:</h3>
+      <p>{{project.participantsProfile}}</p>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start">
+      <h3>Partner countries:</h3>
+      <p>{{project.partnerCountries}}</p>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start">
+      <h3>Travel costs:</h3>
+      <p>Each participant will book it’s own ticket within the limit of {{project.travelCost}} euro and will
+        get reimbursed after providing
+        all necessary documents.</p>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start">
+      <h3>Contribution fee:</h3>
+      <p>Each participant will have to contribute to the project with {{project.fee}}€ as a fee.</p>
+    </div>
+  </article>
+  <button mat-raised-button color="primary">Participate</button>
+</div>

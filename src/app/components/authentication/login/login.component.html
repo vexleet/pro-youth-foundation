@@ -11,5 +11,5 @@
     <mat-error *ngIf="password.hasError('required')">Password is required.</mat-error>
     <mat-error *ngIf="password.hasError('minlength')">Password must be at least 6 symbols.</mat-error>
   </mat-form-field>
-  <button [disabled]="loginForm.invalid" mat-raised-button type="submit" color="primary">Register</button>
+  <button [disabled]="loginForm.invalid" mat-raised-button type="submit" color="primary">Log in</button>
 </form>

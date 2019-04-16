@@ -2,6 +2,7 @@ export interface IProject {
     _id: string;
     place: string;
     title: string;
+    imageOfPlace: string;
     description: string;
     objectives: string;
     participantsProfile: string;

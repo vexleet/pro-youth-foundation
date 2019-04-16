@@ -10,12 +10,14 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit, DoCheck {
   isLoggedIn: boolean;
+  isAdmin: boolean;
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService) {
     this.isLoggedIn = authService.isAuthenticated();
+    this.isAdmin = authService.isAdmin();
   }
 
   ngOnInit() {
@@ -23,6 +25,7 @@ export class NavComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.isLoggedIn = this.authService.isAuthenticated();
+    this.isAdmin = this.authService.isAdmin();
   }
 
   logout() {

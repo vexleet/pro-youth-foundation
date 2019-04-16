@@ -6,16 +6,17 @@
 
 <div class="main">
   <div fxLayout="column" fxLayoutGap="50px">
-    <div fxLayout="row" fxLayoutAlign="start stretch" fxFill *ngFor="let project of (projects | async)">
+    <div fxLayout="row" fxLayoutAlign="start stretch" fxFill *ngFor="let project of projects">
       <div>
         <img src="{{project.imageOfPlace}}" alt="Photo of a Shiba Inu">
       </div>
       <div class="about">
         <h1>"{{project.title}}" - {{project.place}}</h1>
         <p>Posted on: <span class="date">{{project['_kmd']['lmt'] | date}}</span></p>
-        <p>{{project.description | shortenDesc}}<a routerLink="/projects/details" mat-button color="primary">[...]</a>
+        <p>{{project.description | shortenDesc}}<a routerLink="/projects/details/{{project._id}}" mat-button
+            color="primary">[...]</a>
         </p>
-        <button mat-raised-button color="primary">Read more</button>
+        <button mat-raised-button color="primary" routerLink="/projects/details/{{project._id}}">Read more</button>
         <!-- admin button -->
         <button mat-raised-button color="warn">Delete</button>
       </div>
