@@ -5,6 +5,7 @@
     <a mat-button routerLink='/'>Home</a>
     <ng-template [ngIf]="!isLoggedIn">
       <a mat-button routerLink='/projects'>Take part</a>
+      <a mat-button routerLink='/projects/create'>Add project</a>
     </ng-template>
     <span class="example-spacer"></span>
     <ng-template [ngIf]="isLoggedIn">

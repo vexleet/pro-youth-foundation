@@ -1,0 +1,60 @@
+<form (ngSubmit)="createProject()" [formGroup]="createProjectForm" fxLayout="column" fxLayoutAlign="center center"
+  fxLayoutGap="20px">
+  <mat-form-field>
+    <input formControlName="place" matInput type="text" placeholder="Place...">
+    <mat-hint *ngIf="place.invalid">Enter place</mat-hint>
+    <mat-error *ngIf="place.hasError('required')">Place is required.</mat-error>
+    <mat-error *ngIf="place.hasError('minlength')">Place is less than 6 characters.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="title" matInput type="text" placeholder="Title of project...">
+    <mat-hint *ngIf="title.invalid">Enter title</mat-hint>
+    <mat-error *ngIf="title.hasError('required')">Title is required.</mat-error>
+    <mat-error *ngIf="title.hasError('minlength')">Title is less than 6 characters.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="imageOfPlace" matInput type="text" placeholder="Image of place...">
+    <mat-hint *ngIf="imageOfPlace.invalid">Enter image of place</mat-hint>
+    <mat-error *ngIf="imageOfPlace.hasError('required')">Image of place is required.</mat-error>
+    <mat-error *ngIf="imageOfPlace.hasError('pattern')">Image of place must start with https and end with png or jpg
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea formControlName="description" matInput placeholder="Project description..."></textarea>
+    <mat-hint *ngIf="description.invalid">Enter description</mat-hint>
+    <mat-error *ngIf="description.hasError('required')">Description is required.</mat-error>
+    <mat-error *ngIf="description.hasError('minlength')">Description is less than 50 characters.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea formControlName="objectives" matInput placeholder="Project objectives..."></textarea>
+    <mat-hint *ngIf="objectives.invalid">Enter objectives (seperate them with ",")</mat-hint>
+    <mat-error *ngIf="objectives.hasError('required')">Objectives is required.</mat-error>
+    <mat-error *ngIf="objectives.hasError('minlength')">Objectives is less than 50 characters.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea formControlName="participantsProfile" matInput placeholder="Participants profile..."></textarea>
+    <mat-hint *ngIf="participantsProfile.invalid">Enter participants profile</mat-hint>
+    <mat-error *ngIf="participantsProfile.hasError('required')">Participants profile is required.</mat-error>
+    <mat-error *ngIf="participantsProfile.hasError('minlength')">Participants profile is less than 30 characters.
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="partnerCountries" matInput type="text" placeholder="Partner countries...">
+    <mat-hint *ngIf="partnerCountries.invalid">Enter partner countries</mat-hint>
+    <mat-error *ngIf="partnerCountries.hasError('required')">Partner countries is required.</mat-error>
+    <mat-error *ngIf="partnerCountries.hasError('minlength')">Partner countries is less than 5 characters.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="travelCost" matInput type="number" placeholder="Travel cost..." min="1">
+    <mat-hint *ngIf="travelCost.invalid">Enter travel cost</mat-hint>
+    <mat-error *ngIf="travelCost.hasError('required')">Travel cost is required.</mat-error>
+    <mat-error *ngIf="travelCost.hasError('min')">Travel cost must be a positive number.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="fee" matInput type="number" placeholder="Fee..." min="1">
+    <mat-hint *ngIf="fee.invalid">Enter fee</mat-hint>
+    <mat-error *ngIf="fee.hasError('required')">Fee is required.</mat-error>
+    <mat-error *ngIf="fee.hasError('min')">Fee must be a positive number.</mat-error>
+  </mat-form-field>
+  <button [disabled]="createProjectForm.invalid" mat-raised-button type="submit" color="primary">Submit</button>
+</form>

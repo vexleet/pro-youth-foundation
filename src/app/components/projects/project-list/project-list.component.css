@@ -30,3 +30,12 @@
 .main .about button{
     margin-right: 10px;
 }
+
+.about a.mat-button{
+    line-height: 0px;
+}
+
+.about a{
+    padding: 0px;
+    min-width: 25px;
+}

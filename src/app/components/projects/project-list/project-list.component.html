@@ -6,24 +6,15 @@
 
 <div class="main">
   <div fxLayout="column" fxLayoutGap="50px">
-    <div fxLayout="row" fxLayoutAlign="start stretch" fxFill>
+    <div fxLayout="row" fxLayoutAlign="start stretch" fxFill *ngFor="let project of (projects | async)">
       <div>
-        <img src="http://alternativibg.org/wp-content/uploads/2019/04/Riga-250x250.jpg" alt="Photo of a Shiba Inu">
+        <img src="{{project.imageOfPlace}}" alt="Photo of a Shiba Inu">
       </div>
       <div class="about">
-        <h1>Hello</h1>
-        <p>Posted on: <span class="date">29.02.2020</span></p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies vulputate orci, quis dictum turpis
-          euismod et. Nunc pharetra quis libero vitae tempor. Curabitur ac varius sapien, vitae semper sapien. Nulla
-          quis
-          eros ut ipsum accumsan ornare. Sed hendrerit at neque at blandit. Cras vel dolor maximus, sodales lorem et,
-          blandit ipsum. Morbi mattis viverra blandit. Proin malesuada mattis augue, eget rhoncus enim ultrices nec.
-          Donec
-          mollis et tellus nec euismod. Cras eget justo sed lorem fringilla gravida. Morbi mattis viverra blandit. Proin
-          malesuada mattis augue, eget rhoncus enim ultrices nec. Donec
-          mollis et tellus nec euismod. Cras eget justo sed lorem fringilla gravida. Morbi mattis viverra blandit. Proin
-          malesuada mattis augue, eget rhoncus enim ultrices nec. Donec
-          mollis et tellus nec euismod. Cras eget justo sed lorem fringilla gravida.</p>
+        <h1>"{{project.title}}" - {{project.place}}</h1>
+        <p>Posted on: <span class="date">{{project['_kmd']['lmt'] | date}}</span></p>
+        <p>{{project.description | shortenDesc}}<a routerLink="/projects/details" mat-button color="primary">[...]</a>
+        </p>
         <button mat-raised-button color="primary">Read more</button>
         <!-- admin button -->
         <button mat-raised-button color="warn">Delete</button>
