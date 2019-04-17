@@ -1,3 +1,4 @@
+import { AuthService } from './../../../core/services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { IProject } from './../../../core/models';
 import { Component, OnInit } from '@angular/core';
@@ -9,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectListComponent implements OnInit {
   projects: IProject;
+  isAdmin: boolean;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    private authService: AuthService, ) {
     this.projects = this.route.snapshot.data['allProjects'];
+    this.isAdmin = this.authService.isAdmin();
   }
 
   ngOnInit() {

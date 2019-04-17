@@ -1,3 +1,5 @@
+import { ProjectEditComponent } from './project-edit/project-edit.component';
+import { ProjectDeleteComponent } from './project-delete/project-delete.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProjectListComponent } from './project-list/project-list.component';
@@ -14,12 +16,20 @@ const routes: Routes = [
         pathMatch: 'full',
         resolve: {
             allProjects: FetchAllProjectsResolver
-        }
+        },
     },
     { path: 'create', component: ProjectCreateComponent },
     {
         path: 'details/:id',
         component: ProjectDetailsComponent,
+        resolve: {
+            projectDetails: FetchProjectResolver,
+        }
+    },
+    { path: 'delete/:id', component: ProjectDeleteComponent },
+    {
+        path: 'edit/:id',
+        component: ProjectEditComponent,
         resolve: {
             projectDetails: FetchProjectResolver,
         }

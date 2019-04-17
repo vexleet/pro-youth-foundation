@@ -18,7 +18,10 @@
         </p>
         <button mat-raised-button color="primary" routerLink="/projects/details/{{project._id}}">Read more</button>
         <!-- admin button -->
-        <button mat-raised-button color="warn">Delete</button>
+        <button mat-raised-button color="warn" *ngIf="isAdmin"
+          routerLink="/projects/delete/{{project._id}}">Delete</button>
+        <button mat-raised-button color="accent" *ngIf="isAdmin"
+          routerLink="/projects/edit/{{project._id}}">Edit</button>
       </div>
     </div>
   </div>

@@ -8,13 +8,17 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 import { ProjectCreateComponent } from './project-create/project-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShortenDescPipe } from 'src/app/core/pipes/shorten-desc.pipe';
+import { ProjectDeleteComponent } from './project-delete/project-delete.component';
+import { ProjectEditComponent } from './project-edit/project-edit.component';
 
 @NgModule({
   declarations: [
     ProjectListComponent,
     ProjectDetailsComponent,
     ProjectCreateComponent,
+    ProjectDeleteComponent,
     ShortenDescPipe,
+    ProjectEditComponent,
   ],
   imports: [
     CommonModule,

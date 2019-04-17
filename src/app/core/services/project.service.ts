@@ -24,4 +24,12 @@ export class ProjectService {
   getDetails(id: string) {
     return this.http.get<IProject>(`${this.CREATE_PROJECT}/${id}`);
   }
+
+  deleteProject(id: string) {
+    return this.http.delete(`${this.CREATE_PROJECT}/${id}`);
+  }
+
+  editProject(body: IProject, id: string) {
+    return this.http.put(`${this.CREATE_PROJECT}/${id}`, body);
+  }
 }
