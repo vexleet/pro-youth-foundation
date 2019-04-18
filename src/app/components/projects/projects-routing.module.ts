@@ -1,3 +1,4 @@
+import { ProjectParticipateComponent } from './project-participate/project-participate.component';
 import { ProjectEditComponent } from './project-edit/project-edit.component';
 import { ProjectDeleteComponent } from './project-delete/project-delete.component';
 import { NgModule } from '@angular/core';
@@ -33,7 +34,8 @@ const routes: Routes = [
         resolve: {
             projectDetails: FetchProjectResolver,
         }
-    }
+    },
+    { path: 'participate/:id', component: ProjectParticipateComponent },
 ];
 
 @NgModule({

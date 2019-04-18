@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ShortenDescPipe } from 'src/app/core/pipes/shorten-desc.pipe';
 import { ProjectDeleteComponent } from './project-delete/project-delete.component';
 import { ProjectEditComponent } from './project-edit/project-edit.component';
+import { ProjectParticipateComponent } from './project-participate/project-participate.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ProjectEditComponent } from './project-edit/project-edit.component';
     ProjectDeleteComponent,
     ShortenDescPipe,
     ProjectEditComponent,
+    ProjectParticipateComponent,
   ],
   imports: [
     CommonModule,

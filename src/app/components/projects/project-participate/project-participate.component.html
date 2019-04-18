@@ -1,0 +1,38 @@
+<form (ngSubmit)="sendLetter()" [formGroup]="participateForm" fxLayout="column" fxLayoutAlign="center center"
+  fxLayoutGap="20px">
+  <mat-form-field>
+    <input formControlName="fullName" matInput type="text" placeholder="Full name...">
+    <mat-hint *ngIf="fullName.invalid">Enter full name</mat-hint>
+    <mat-error *ngIf="fullName.hasError('required')">Full name is required.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="telephone" matInput type="text" placeholder="Telephone...">
+    <mat-hint *ngIf="telephone.invalid">Enter your telephone</mat-hint>
+    <mat-error *ngIf="telephone.hasError('required')">Telephone is required.</mat-error>
+    <mat-error *ngIf="telephone.hasError('pattern')">Telephone must be 10 characters (only numbers)</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="age" matInput type="number" placeholder="Age..." min="18">
+    <mat-hint *ngIf="age.invalid">Enter your age</mat-hint>
+    <mat-error *ngIf="age.hasError('required')">Age is required.</mat-error>
+    <mat-error *ngIf="age.hasError('min')">You must be at least 18 years old</mat-error>
+  </mat-form-field>
+  <mat-radio-group formControlName="gender">
+    <mat-radio-button value="Male" color="primary" [checked]="true">Male</mat-radio-button>
+    <mat-radio-button value="Female" color="primary">Female</mat-radio-button>
+  </mat-radio-group>
+  <mat-form-field>
+    <input formControlName="specialNeeds" matInput type="text" placeholder="Special needs...">
+    <mat-hint *ngIf="specialNeeds.invalid">Please specify if you have any special needs (vegetarian, vegan, health issue
+      etc.)</mat-hint>
+    <mat-error *ngIf="specialNeeds.hasError('required')">Special needs are required.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea formControlName="coverLetter" matInput type="text"
+      placeholder="Write your cover letter here..."></textarea>
+    <mat-hint *ngIf="coverLetter.invalid">Cover letter</mat-hint>
+    <mat-error *ngIf="coverLetter.hasError('required')">Cover letter is required.</mat-error>
+    <mat-error *ngIf="coverLetter.hasError('minlength')">Cover letter should be at least 50 characters.</mat-error>
+  </mat-form-field>
+  <button [disabled]="participateForm.invalid" mat-raised-button type="submit" color="primary">Submit</button>
+</form>
