@@ -1,15 +1,18 @@
 import { FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-project-create',
   templateUrl: './project-create.component.html',
   styleUrls: ['./project-create.component.css']
 })
-export class ProjectCreateComponent implements OnInit {
+export class ProjectCreateComponent implements OnInit, OnDestroy {
+  private ngUnsubscribe = new Subject();
   createProjectForm = this.fb.group({
     place: ['', [Validators.required, Validators.minLength(6)]],
     title: ['', [Validators.required, Validators.minLength(6)]],
@@ -32,8 +35,14 @@ export class ProjectCreateComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
+
   createProject() {
     this.projectService.createProject(this.createProjectForm.value)
+      .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(_ => {
         this.toastr.success('Project created successfully!');
         this.router.navigate(['/projects']);

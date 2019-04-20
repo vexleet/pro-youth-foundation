@@ -14,7 +14,7 @@ export class ProjectService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<IProject>(this.ALL_PROJECTS);
+    return this.http.get<IProject[]>(this.ALL_PROJECTS);
   }
 
   createProject(body: IProject) {

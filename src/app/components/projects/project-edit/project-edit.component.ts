@@ -1,16 +1,19 @@
 import { ProjectService } from './../../../core/services/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IProject } from 'src/app/core/models';
 import { ToastrService } from 'ngx-toastr';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-project-edit',
   templateUrl: './project-edit.component.html',
   styleUrls: ['./project-edit.component.css']
 })
-export class ProjectEditComponent implements OnInit {
+export class ProjectEditComponent implements OnInit, OnDestroy {
+  private ngUnsubscribe = new Subject();
   editProjectForm: FormGroup;
   project: IProject;
 
@@ -38,10 +41,16 @@ export class ProjectEditComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
+
   editProject() {
     const idOfProject = this.route.snapshot.params['id'];
 
     this.projectService.editProject(this.editProjectForm.value, idOfProject)
+      .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(_ => {
         this.toastr.success('Project edited successfully');
         this.router.navigate(['/projects', 'details', idOfProject]);

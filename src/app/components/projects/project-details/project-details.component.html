@@ -41,5 +41,10 @@
       <p>Each participant will have to contribute to the project with {{project.fee}}€ as a fee.</p>
     </div>
   </article>
-  <button mat-raised-button color="primary" routerLink="/projects/participate/{{project._id}}">Participate</button>
+  <button mat-raised-button color="primary" *ngIf="!isAdmin"
+    routerLink="/projects/participate/{{project._id}}">Participate</button>
+  <button mat-raised-button color="primary" *ngIf="isAdmin" routerLink="/volunteers/project/{{project._id}}">Check
+    volunteers</button>
+  <button mat-raised-button color="warn" *ngIf="isAdmin" routerLink="/projects/delete/{{project._id}}">Delete</button>
+  <button mat-raised-button color="accent" *ngIf="isAdmin" routerLink="/projects/edit/{{project._id}}">Edit</button>
 </div>

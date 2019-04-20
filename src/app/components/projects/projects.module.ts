@@ -29,8 +29,6 @@ import { ProjectParticipateComponent } from './project-participate/project-parti
     ProjectsRoutingModule,
     ReactiveFormsModule,
   ],
-  exports: [
-    ProjectListComponent
-  ]
+  exports: []
 })
 export class ProjectsModule { }

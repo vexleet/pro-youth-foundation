@@ -1,3 +1,4 @@
+import { VolunteersModule } from './components/volunteers/volunteers.module';
 import { HomeComponent } from './components/home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RegisterComponent } from './components/authentication/register/register.component';

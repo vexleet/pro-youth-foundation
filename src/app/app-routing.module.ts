@@ -1,3 +1,4 @@
+import { CanLoadVolunteer } from './core/guards/volunteer.guard';
 import { AuthGuard } from './core/guards/auth.guard';
 import { CanLoadProject } from './core/guards/project.guard';
 import { ProjectListComponent } from './components/projects/project-list/project-list.component';
@@ -28,6 +29,11 @@ const routes: Routes = [
     path: 'projects',
     loadChildren: './components/projects/projects.module#ProjectsModule',
     canLoad: [CanLoadProject]
+  },
+  {
+    path: 'volunteers',
+    loadChildren: './components/volunteers/volunteers.module#VolunteersModule',
+    canLoad: [CanLoadVolunteer],
   }
 ];
 

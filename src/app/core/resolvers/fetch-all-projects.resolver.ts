@@ -7,13 +7,13 @@ import { IProject } from '../models';
 @Injectable({
     providedIn: 'root'
 })
-export class FetchAllProjectsResolver implements Resolve<IProject> {
+export class FetchAllProjectsResolver implements Resolve<IProject[]> {
 
     constructor(private projectService: ProjectService) { }
 
     resolve(
         route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): Observable<IProject> {
+        state: RouterStateSnapshot): Observable<IProject[]> {
         return this.projectService.getAll();
     }
 }
